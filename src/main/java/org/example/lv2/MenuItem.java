@@ -3,12 +3,12 @@ package org.example.lv2;
 public class MenuItem {
     //속성
     String name;
-    int price;
+    double price;
     String description;
 
 
     //생성자
-    public MenuItem (String name, int price, String description){
+    public MenuItem(String name, double price, String description) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -16,7 +16,10 @@ public class MenuItem {
 
 
     //기능
-    public void printMenu(){
-        System.out.println("선택한 메뉴: " + name + ", " + price + "원" + ", " + description);
+    //toString() 오버라이딩
+    public String toString() {
+        return name +" | "+ price +" | "+ description;
     }
+
+
 }

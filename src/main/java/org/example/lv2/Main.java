@@ -41,7 +41,7 @@ public class Main {
                     System.out.println("선택한 메뉴: " + menuItems.get(3));
                     break;
                 default:
-                    System.out.println("입력값이 올바르지 않습니다. 종료하시겠습니까?(종료를 원하면 'yes'를 입력하세요)");
+                    System.out.println("입력값이 올바르지 않습니다.");
                     if ("0".equals(selectMenu)) {
                         System.out.println("주문을 종료합니다");
                         return;

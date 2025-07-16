@@ -22,26 +22,32 @@ public class Main {
             System.out.println(menuItems.get(i));
         } //참조값 출력됨 -> MenuItem 클래스에 toString()생성
 
-        // 숫자를 입력 받기
-        System.out.print("\n주문하실 메뉴의 번호를 입력하세요: ");
-        String selectMenu = sc.nextLine();
-
-        // 입력된 숫자에 따른 처리
-        switch (selectMenu) {
-            case "1":
-                System.out.println("선택한 메뉴: " + menuItems.get(0));
-                break;
-            case "2":
-                System.out.println("선택한 메뉴: " + menuItems.get(1));
-                break;
-            case "3":
-                System.out.println("선택한 메뉴: " + menuItems.get(2));
-                break;
-            case "4":
-                System.out.println("선택한 메뉴: " + menuItems.get(3));
-                break;
-            default:
-                System.out.println("입력값이 올바르지 않습니다.");
+        while(true){
+            // 숫자를 입력 받기
+            System.out.print("\n주문하실 메뉴의 번호를 입력하세요. (주문 종료를 원하시면 '0'번을 입력하세요) : ");
+            String selectMenu = sc.nextLine();
+            // 입력된 숫자에 따른 처리
+            switch (selectMenu) {
+                case "1":
+                    System.out.println("선택한 메뉴: " + menuItems.get(0));
+                    break;
+                case "2":
+                    System.out.println("선택한 메뉴: " + menuItems.get(1));
+                    break;
+                case "3":
+                    System.out.println("선택한 메뉴: " + menuItems.get(2));
+                    break;
+                case "4":
+                    System.out.println("선택한 메뉴: " + menuItems.get(3));
+                    break;
+                default:
+                    System.out.println("입력값이 올바르지 않습니다.");
+                    if ("0".equals(selectMenu)) {
+                        System.out.println("주문을 종료합니다");
+                        return;
+                    }
+            }
         }
+
     }
 }

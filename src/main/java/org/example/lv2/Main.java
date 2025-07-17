@@ -40,12 +40,11 @@ public class Main {
                 case "4":
                     System.out.println("선택한 메뉴: " + menuItems.get(3));
                     break;
+                case "0":
+                    System.out.println("주문을 종료합니다");
+                    return;
                 default:
                     System.out.println("입력값이 올바르지 않습니다.");
-                    if ("0".equals(selectMenu)) {
-                        System.out.println("주문을 종료합니다");
-                        return;
-                    }
             }
         }
 

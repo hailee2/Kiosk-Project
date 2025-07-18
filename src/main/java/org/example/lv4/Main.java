@@ -29,10 +29,6 @@ public class Main {
         mainList.add(new Menu(3,"Deserts"));
         mainList.add(new Menu(0,"종료"));
 
-        Menu menu = new Menu(); // 얘가 필요해?
-        //확인용 출력
-        menu.printList(mainList);
-
         // Kiosk 객체 생성
         Kiosk kiosk = new Kiosk(mainList, burgerList, drinkList, desertList);
 

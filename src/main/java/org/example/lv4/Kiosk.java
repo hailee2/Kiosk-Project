@@ -1,11 +1,16 @@
 package org.example.lv4;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Kiosk {
     //속성
+    List<Menu> menus;
 
     //생성자
+    public Kiosk(List<Menu> menus){
+        this.menus=menus;
+    }
 
     //기능
     public void start(){

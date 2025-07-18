@@ -34,7 +34,7 @@ public class Main {
         menu.printList(mainList);
 
         // Kiosk 객체 생성
-        Kiosk kiosk = new Kiosk();
+        Kiosk kiosk = new Kiosk(mainList);
 
         // Kiosk 내 시작하는 함수 호출
         kiosk.start();

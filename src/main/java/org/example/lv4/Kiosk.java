@@ -13,7 +13,7 @@ public class Kiosk {
         Scanner sc = new Scanner(System.in);
         // 반복문 시작
         while(true){
-            
+
         }
     }
 }

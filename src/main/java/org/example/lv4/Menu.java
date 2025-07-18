@@ -22,12 +22,6 @@ public class Menu {
     }
     public Menu(){}
 
-    // List에 들어있는 MenuItem을 순차적으로 보여주는 함수 >> 이제 안필요하지않나????
-    public void printList(List<Menu> menus){
-        for(int i = 0; i< menus.size(); i++) {
-            System.out.println(menus.get(i));
-        }
-    }
 
     // List를 리턴하는 함수
     public List<MenuItem> getMenuItems(){

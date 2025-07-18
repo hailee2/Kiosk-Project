@@ -2,22 +2,26 @@ package org.example.lv4;
 
 public class MenuItem {
     //속성
+    int id;
     String name;
     double price;
     String description;
 
 
     //생성자
-    public MenuItem(String name){
+    public MenuItem(int id, String name){
+        this.id = id;
         this.name= name;
     }
 
-    public MenuItem(String name, double price){
+    public MenuItem(int id, String name, double price){
+        this.id = id;
         this.name = name;
         this.price = price;
     }
 
-    public MenuItem(String name, double price, String description) {
+    public MenuItem(int id, String name, double price, String description) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
@@ -27,11 +31,11 @@ public class MenuItem {
     //toString() 오버라이딩
     public String toString() {
         if(!(name==null) && price==0.0 && description==null){
-            return name;
+            return id + " " + name;
         }else if(!(name==null) && !(price==0.0) && description==null){
-            return name +" | "+ price +" | ";
+            return id + " " + name +" | "+ price +" | ";
         }else{
-            return name +" | "+ price +" | "+ description;
+            return id + " " + name +" | "+ price +" | "+ description;
         }
     }
 }

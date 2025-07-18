@@ -22,7 +22,7 @@ public class Menu {
     }
     public Menu(){}
 
-    // List에 들어있는 MenuItem을 순차적으로 보여주는 함수
+    // List에 들어있는 MenuItem을 순차적으로 보여주는 함수 >> 이제 안필요하지않나????
     public void printList(List<Menu> menus){
         for(int i = 0; i< menus.size(); i++) {
             System.out.println(menus.get(i));
@@ -42,9 +42,9 @@ public class Menu {
     //toString() 오버라이딩
     public String toString() {
         if (!(name == null) && id == 0.0 && menuItems == null) {
-            return name;
+            return id + " " + name;
         } else if (!(name == null) && !(id == 0.0) && menuItems == null) {
-            return id + " " +name;
+            return id + " " + name;
         } else {
             return id + " " + name + " = " + menuItems;
         }

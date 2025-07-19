@@ -23,14 +23,14 @@ public class Main {
         desertList.add(new MenuItem(0,"뒤로가기"));
 
         // Menu 객체 생성을 통해 이름 설정
-        List<Menu> mainList = new ArrayList<>();
-        mainList.add(new Menu(1,"Burgers"));
-        mainList.add(new Menu(2,"Drinks"));
-        mainList.add(new Menu(3,"Deserts"));
-        mainList.add(new Menu(0,"종료"));
+        List<Menu> menuList = new ArrayList<>();
+        menuList.add(new Menu(1,"Burgers",burgerList));
+        menuList.add(new Menu(2,"Drinks",drinkList));
+        menuList.add(new Menu(3,"Deserts",desertList));
+        menuList.add(new Menu(0,"종료"));
 
         // Kiosk 객체 생성
-        Kiosk kiosk = new Kiosk(mainList, burgerList, drinkList, desertList);
+        Kiosk kiosk = new Kiosk(menuList);
 
         // Kiosk 내 시작하는 함수 호출
         kiosk.start();

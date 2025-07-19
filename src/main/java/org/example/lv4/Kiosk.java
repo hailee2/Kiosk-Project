@@ -1,21 +1,17 @@
 package org.example.lv4;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Kiosk {
     //속성
     List<Menu> menus;
-    List<MenuItem> items1;
-    List<MenuItem> items2;
-    List<MenuItem> items3;
+
 
     //생성자
-    public Kiosk(List<Menu> menus, List<MenuItem> items1, List<MenuItem> items2, List<MenuItem> items3){
+    public Kiosk(List<Menu> menus){
         this.menus=menus;
-        this.items1=items1;
-        this.items2=items2;
-        this.items3=items3;
     }
 
     //기능
@@ -28,78 +24,91 @@ public class Kiosk {
             System.out.println(menus);
             // 숫자 입력 받기
             System.out.print("입력: ");
-            String selectMain = sc.nextLine();
+            int selectMain = Integer.parseInt(sc.nextLine());
                 switch (selectMain){
-                    case "1":
-                        for (MenuItem item : items1) {
+                    case 1:
+                        List<MenuItem> items = Objects.requireNonNull(getMenuById(selectMain)).getMenuItems();
+                        for (MenuItem item : items) {
                             System.out.println(item);
                         }
                             System.out.print("입력: ");
-                            String selectBurger = sc.nextLine();
+                            int selectBurger = Integer.parseInt(sc.nextLine());
                                 switch(selectBurger){
-                                    case "1":
-                                        System.out.println(items1.get(0));
+                                    case 1:
+                                        System.out.println("선택한 메뉴: " + items.get(0));
                                         break;
-                                    case "2":
-                                        System.out.println(items1.get(1));
+                                    case 2:
+                                        System.out.println("선택한 메뉴: " + items.get(1));
                                         break;
-                                    case "3":
-                                        System.out.println(items3.get(2));
+                                    case 3:
+                                        System.out.println("선택한 메뉴: " + items.get(2));
                                         break;
-                                    case "4":
-                                        System.out.println(items3.get(3));
+                                    case 4:
+                                        System.out.println("선택한 메뉴: " + items.get(3));
                                         break;
-                                    case "0":
+                                    case 0:
                                         break;
-                                }// 근데 여기서어떻게 딱! 햄버거아이템리스트를 가져올 수가 있나요...
+                                }
                         break;
-                    case "2":
+                    case 2:
+                        List<MenuItem> items2 = Objects.requireNonNull(getMenuById(selectMain)).getMenuItems();
                         for (MenuItem item : items2) {
                             System.out.println(item);
                         }
                         System.out.print("입력: ");
-                        String selectDrink = sc.nextLine();
+                        int selectDrink = Integer.parseInt(sc.nextLine());
                         switch(selectDrink){
-                            case "1":
+                            case 1:
                                 System.out.println(items2.get(0));
                                 break;
-                            case "2":
+                            case 2:
                                 System.out.println(items2.get(1));
                                 break;
-                            case "3":
+                            case 3:
                                 System.out.println(items2.get(2));
                                 break;
-                            case "0":
+                            case 0:
                                 break;
                         }
                         break;
-                    case "3":
+                    case 3: 
+                    List<MenuItem> items3 = Objects.requireNonNull(getMenuById(selectMain)).getMenuItems();
                         for (MenuItem item : items3) {
                             System.out.println(item);
                         }
                         System.out.print("입력: ");
-                        String selectDesert = sc.nextLine();
+                        int selectDesert = Integer.parseInt(sc.nextLine());
                         switch(selectDesert){
-                            case "1":
+                            case 1:
                                 System.out.println(items3.get(0));
                                 break;
-                            case "2":
+                            case 2:
                                 System.out.println(items3.get(1));
                                 break;
-                            case "3":
+                            case 3:
                                 System.out.println(items3.get(2));
                                 break;
-                            case "0":
+                            case 0:
                                 break;
                         }
                         break;
-                    case "0":
+                    case 0:
                     return;
                 }
 
             // 입력 받은 숫자가 올바르다면 인덱스로 활용하여 List에 접근하기
             // List<Menu>에 인덱스로 접근하면 Menu만 추출할 수 있겠죠?
 
+
+
         }
+    }
+    private Menu getMenuById(int id){
+        for(Menu menu : menus){
+            if(id==menu.getId()){
+                return menu;
+            }
+        }
+        return null;
     }
 }

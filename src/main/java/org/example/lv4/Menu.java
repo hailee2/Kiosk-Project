@@ -32,6 +32,10 @@ public class Menu {
         return id ;
     }
 
+    public String getName(){
+        return name;
+    }
+
 
     //toString() 오버라이딩
     public String toString() {

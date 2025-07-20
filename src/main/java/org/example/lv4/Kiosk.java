@@ -22,7 +22,9 @@ public class Kiosk {
         while(true){
             try{
                 // List와 Menu 클래스 활용하여 상위 카테고리 메뉴 출력
-                System.out.println(menus);
+                for (Menu menu : menus) {
+                    System.out.println(menu.getId()+" "+menu.getName());
+                }
                 // 숫자 입력 받기
                 System.out.print("입력: ");
                 int selectMain = Integer.parseInt(sc.nextLine());

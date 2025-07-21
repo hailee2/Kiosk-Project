@@ -20,7 +20,6 @@ public class Menu {
         this.id = id;
         this.name=name;
     }
-    public Menu(){}
 
 
     // List를 리턴하는 함수
@@ -39,13 +38,10 @@ public class Menu {
 
     //toString() 오버라이딩
     public String toString() {
-        if (!(name == null) && id == 0.0 && menuItems == null) {
+        if (!(name == null) && menuItems == null) {
             return id + " " + name;
-        } else if (!(name == null) && !(id == 0.0) && menuItems == null) {
-            return id + " " + name;
-        } else {
-            return id + " " + name + " = " + menuItems;
+        }else{
+            return id + name + menuItems;
         }
     }
-    // 구조에 맞게 함수를 선언해놓고 가져다 사용하세요.
 }

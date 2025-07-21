@@ -33,7 +33,7 @@ public class MenuItem {
         if(!(name==null) && price==0.0 && description==null){
             return id + " " + name;
         }else if(!(name==null) && !(price==0.0) && description==null){
-            return id + " " + name +" | "+ price +" | ";
+            return id + " " + name +" | "+ price ;
         }else{
             return id + " " + name +" | "+ price +" | "+ description;
         }

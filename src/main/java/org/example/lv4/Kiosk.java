@@ -22,7 +22,7 @@ public class Kiosk {
         while(true){
             try{
                 // List와 Menu 클래스 활용하여 상위 카테고리 메뉴 출력
-                System.out.println("[ MAIN MENU ]");
+                System.out.println("\n[ MAIN MENU ]");
                 for (Menu menu : menus) {
                     System.out.println(menu.getId()+" "+menu.getName());
                 }
@@ -38,25 +38,11 @@ public class Kiosk {
                         }
                         System.out.print("입력: ");
                         int selectBurger = Integer.parseInt(sc.nextLine());
-                        switch(selectBurger){
-                            case 1:
-                                System.out.println("선택한 메뉴: " + items.get(0)+"\n");
-                                break;
-                            case 2:
-                                System.out.println("선택한 메뉴: " + items.get(1)+"\n");
-                                break;
-                            case 3:
-                                System.out.println("선택한 메뉴: " + items.get(2)+"\n");
-                                break;
-                            case 4:
-                                System.out.println("선택한 메뉴: " + items.get(3)+"\n");
-                                break;
-                            case 0:
-                                break;
-                                default:
-                                    System.out.println("입력값이 올바르지 않습니다. 해당 메뉴의 번호를 입력해주세요");
+                        if(selectBurger == 0 ){
+                            break;
                         }
                         break;
+
                     case 2: //2. Drinks를 입력한 경우
                         System.out.println("\n[ DRINKS MENU ]");
                         List<MenuItem> items2 = Objects.requireNonNull(getMenuById(selectMain)).getMenuItems();
@@ -65,22 +51,13 @@ public class Kiosk {
                         }
                         System.out.print("입력: ");
                         int selectDrink = Integer.parseInt(sc.nextLine());
-                        switch(selectDrink){
-                            case 1:
-                                System.out.println("선택한 메뉴: " +items2.get(0)+"\n");
-                                break;
-                            case 2:
-                                System.out.println("선택한 메뉴: " +items2.get(1)+"\n");
-                                break;
-                            case 3:
-                                System.out.println("선택한 메뉴: " +items2.get(2)+"\n");
-                                break;
-                            case 0:
-                                break;
-                            default:
-                                System.out.println("입력값이 올바르지 않습니다. 해당 메뉴의 번호를 입력해주세요");
+                        if(selectDrink == 0 ){
+                            break;
+                        }else{
+                            System.out.println("선택한 메뉴: "+items2.get(selectDrink-1));
                         }
                         break;
+
                     case 3: //3. Deserts 입력한 경우
                         System.out.println("\n[ DESERTS MENU ]");
                         List<MenuItem> items3 = Objects.requireNonNull(getMenuById(selectMain)).getMenuItems();
@@ -89,29 +66,20 @@ public class Kiosk {
                         }
                         System.out.print("입력: ");
                         int selectDesert = Integer.parseInt(sc.nextLine());
-                        switch(selectDesert){
-                            case 1:
-                                System.out.println("선택한 메뉴: " +items3.get(0)+"\n");
-                                break;
-                            case 2:
-                                System.out.println("선택한 메뉴: " +items3.get(1)+"\n");
-                                break;
-                            case 3:
-                                System.out.println("선택한 메뉴: " +items3.get(2)+"\n");
-                                break;
-                            case 0:
-                                break;
-                            default:
-                                System.out.println("입력값이 올바르지 않습니다. 해당 메뉴의 번호를 입력해주세요"); //
+                        if(selectDesert== 0 ){
+                            break;
+                        }else{
+                            System.out.println("선택한 메뉴: "+items3.get(selectDesert-1));
                         }
                         break;
+
                     case 0: //종료 선택
                         return;
                 }
             }catch(NullPointerException e){
-                System.out.println("입력이 되지 않았습니다. 메뉴 번호를 입력하세요."); //입력값이 null일 때
+                System.out.println("입력되지 않았습니다. 메뉴 번호를 입력하세요."); //입력값이 null일 때
             }catch (NumberFormatException e) {
-            System.out.println("해당 메뉴의 번호를 입력해주세요."); //숫자를 입력하지 않은 경우 + 1~3,0을 입력하지 않은 경우
+            System.out.println("입력값이 올바르지 않습니다. 메뉴의 번호를 입력해주세요."); //숫자를 입력하지 않은 경우
             }
         }
     }

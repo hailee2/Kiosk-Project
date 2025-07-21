@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Kiosk {
     //속성
-    List<Menu> menus;
+    private List<Menu> menus;
 
 
     //생성자
@@ -30,7 +30,7 @@ public class Kiosk {
                 System.out.print("입력: ");
                 int selectMain = Integer.parseInt(sc.nextLine());
                 switch (selectMain){
-                    case 1:
+                    case 1: //1. Burgers를 입력한 경우
                         System.out.println("\n[ BURGERS MENU ]");
                         List<MenuItem> items = Objects.requireNonNull(getMenuById(selectMain)).getMenuItems();
                         for (MenuItem item : items) {
@@ -57,7 +57,7 @@ public class Kiosk {
                                     System.out.println("입력값이 올바르지 않습니다. 해당 메뉴의 번호를 입력해주세요");
                         }
                         break;
-                    case 2:
+                    case 2: //2. Drinks를 입력한 경우
                         System.out.println("\n[ DRINKS MENU ]");
                         List<MenuItem> items2 = Objects.requireNonNull(getMenuById(selectMain)).getMenuItems();
                         for (MenuItem item : items2) {
@@ -81,7 +81,7 @@ public class Kiosk {
                                 System.out.println("입력값이 올바르지 않습니다. 해당 메뉴의 번호를 입력해주세요");
                         }
                         break;
-                    case 3:
+                    case 3: //3. Deserts 입력한 경우
                         System.out.println("\n[ DESERTS MENU ]");
                         List<MenuItem> items3 = Objects.requireNonNull(getMenuById(selectMain)).getMenuItems();
                         for (MenuItem item : items3) {
@@ -102,24 +102,17 @@ public class Kiosk {
                             case 0:
                                 break;
                             default:
-                                System.out.println("입력값이 올바르지 않습니다. 해당 메뉴의 번호를 입력해주세요");
+                                System.out.println("입력값이 올바르지 않습니다. 해당 메뉴의 번호를 입력해주세요"); //
                         }
                         break;
-                    case 0:
+                    case 0: //종료 선택
                         return;
                 }
             }catch(NullPointerException e){
-                System.out.println("입력이 되지 않았습니다. 메뉴 번호를 입력하세요.");
+                System.out.println("입력이 되지 않았습니다. 메뉴 번호를 입력하세요."); //입력값이 null일 때
             }catch (NumberFormatException e) {
-            System.out.println("해당 메뉴의 번호를 입력해주세요.");
-        }
-
-
-            // 입력 받은 숫자가 올바르다면 인덱스로 활용하여 List에 접근하기
-            // List<Menu>에 인덱스로 접근하면 Menu만 추출할 수 있겠죠?
-
-
-
+            System.out.println("해당 메뉴의 번호를 입력해주세요."); //숫자를 입력하지 않은 경우 + 1~3,0을 입력하지 않은 경우
+            }
         }
     }
     private Menu getMenuById(int id){

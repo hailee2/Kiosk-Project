@@ -14,63 +14,33 @@ public class Kiosk {
         this.menus=menus;
     }
 
+    // 스캐너 선언
+    Scanner sc = new Scanner(System.in);
     //기능
     public void start(){
-        // 스캐너 선언
-        Scanner sc = new Scanner(System.in);
+
         // 반복문 시작
         while(true){
             try{
-                // List와 Menu 클래스 활용하여 상위 카테고리 메뉴 출력
-                System.out.println("\n[ MAIN MENU ]");
-                for (Menu menu : menus) {
-                    System.out.println(menu.getId()+" "+menu.getName());
-                }
+                //상위 카테고리 메뉴 출력 메서드
+                ShowMenu();
                 // 숫자 입력 받기
                 System.out.print("입력: ");
                 int selectMain = Integer.parseInt(sc.nextLine());
                 switch (selectMain){
                     case 1: //1. Burgers를 입력한 경우
                         System.out.println("\n[ BURGERS MENU ]");
-                        List<MenuItem> items = Objects.requireNonNull(getMenuById(selectMain)).getMenuItems();
-                        for (MenuItem item : items) {
-                            System.out.println(item);
-                        }
-                        System.out.print("입력: ");
-                        int selectBurger = Integer.parseInt(sc.nextLine());
-                        if(selectBurger == 0 ){
-                            break;
-                        }
+                        SelectedMenuItem(selectMain);
                         break;
 
                     case 2: //2. Drinks를 입력한 경우
                         System.out.println("\n[ DRINKS MENU ]");
-                        List<MenuItem> items2 = Objects.requireNonNull(getMenuById(selectMain)).getMenuItems();
-                        for (MenuItem item : items2) {
-                            System.out.println(item);
-                        }
-                        System.out.print("입력: ");
-                        int selectDrink = Integer.parseInt(sc.nextLine());
-                        if(selectDrink == 0 ){
-                            break;
-                        }else{
-                            System.out.println("선택한 메뉴: "+items2.get(selectDrink-1));
-                        }
+                        SelectedMenuItem(selectMain);
                         break;
 
                     case 3: //3. Deserts 입력한 경우
                         System.out.println("\n[ DESERTS MENU ]");
-                        List<MenuItem> items3 = Objects.requireNonNull(getMenuById(selectMain)).getMenuItems();
-                        for (MenuItem item : items3) {
-                            System.out.println(item);
-                        }
-                        System.out.print("입력: ");
-                        int selectDesert = Integer.parseInt(sc.nextLine());
-                        if(selectDesert== 0 ){
-                            break;
-                        }else{
-                            System.out.println("선택한 메뉴: "+items3.get(selectDesert-1));
-                        }
+                        SelectedMenuItem(selectMain);
                         break;
 
                     case 0: //종료 선택
@@ -83,6 +53,15 @@ public class Kiosk {
             }
         }
     }
+
+    // List와 Menu 클래스 활용하여 상위 카테고리 메뉴 출력
+    private void ShowMenu(){
+        System.out.println("\n[ MAIN MENU ]");
+        for (Menu menu : menus) {
+            System.out.println(menu.getId()+" "+menu.getName());
+        }
+    }
+
     private Menu getMenuById(int id){
         for(Menu menu : menus){
             if(id==menu.getId()){
@@ -91,4 +70,20 @@ public class Kiosk {
         }
         return null;
     }
+
+    private void SelectedMenuItem(int selectMain){
+        List<MenuItem> items = Objects.requireNonNull(getMenuById(selectMain)).getMenuItems();
+        for (MenuItem item : items) {
+            System.out.println(item);
+        }
+        System.out.print("입력: ");
+        int selectedMenuItem = Integer.parseInt(sc.nextLine());
+        if(selectedMenuItem == 0 ){
+            return;
+        }else{
+            System.out.println("선택한 메뉴: "+items.get(selectedMenuItem-1));
+        }
+    }
+
 }
+

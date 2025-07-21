@@ -2,10 +2,10 @@ package org.example.lv4;
 
 public class MenuItem {
     //속성
-    int id;
-    String name;
-    double price;
-    String description;
+    private int id;
+    private String name;
+    private double price;
+    private String description;
 
 
     //생성자

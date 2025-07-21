@@ -6,9 +6,9 @@ public class Menu {
 
     // MenuItem 클래스를 List로 관리
     //속성
-    int id;
-    String name;
-    List<MenuItem> menuItems;
+    private int id;
+    private String name;
+    private List<MenuItem> menuItems;
 
     //생성자
     public Menu(int id, String name, List<MenuItem> menuItems){

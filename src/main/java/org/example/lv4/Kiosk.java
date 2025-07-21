@@ -22,6 +22,7 @@ public class Kiosk {
         while(true){
             try{
                 // List와 Menu 클래스 활용하여 상위 카테고리 메뉴 출력
+                System.out.println("메뉴를 선택해주세요.");
                 for (Menu menu : menus) {
                     System.out.println(menu.getId()+" "+menu.getName());
                 }
@@ -64,13 +65,13 @@ public class Kiosk {
                         int selectDrink = Integer.parseInt(sc.nextLine());
                         switch(selectDrink){
                             case 1:
-                                System.out.println(items2.get(0));
+                                System.out.println("선택한 메뉴: " +items2.get(0));
                                 break;
                             case 2:
-                                System.out.println(items2.get(1));
+                                System.out.println("선택한 메뉴: " +items2.get(1));
                                 break;
                             case 3:
-                                System.out.println(items2.get(2));
+                                System.out.println("선택한 메뉴: " +items2.get(2));
                                 break;
                             case 0:
                                 break;
@@ -87,13 +88,13 @@ public class Kiosk {
                         int selectDesert = Integer.parseInt(sc.nextLine());
                         switch(selectDesert){
                             case 1:
-                                System.out.println(items3.get(0));
+                                System.out.println("선택한 메뉴: " +items3.get(0));
                                 break;
                             case 2:
-                                System.out.println(items3.get(1));
+                                System.out.println("선택한 메뉴: " +items3.get(1));
                                 break;
                             case 3:
-                                System.out.println(items3.get(2));
+                                System.out.println("선택한 메뉴: " +items3.get(2));
                                 break;
                             case 0:
                                 break;

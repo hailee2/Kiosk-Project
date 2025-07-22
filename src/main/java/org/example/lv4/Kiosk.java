@@ -25,27 +25,14 @@ public class Kiosk {
                 ShowMenu();
                 // 메뉴 선택
                 System.out.print("입력: ");
-                int selectMain = Integer.parseInt(sc.nextLine()); //nextInt로 받으면 개행버퍼제거 줄을 또 만들어야해서 문자열로 받고 int로 변환
-                switch (selectMain){
-                    case 1: //1. Burgers를 입력한 경우
-                        System.out.println("\n[ BURGERS MENU ]");
-                        ShowSelectedMenuItem(selectMain);
-                        break;
-
-                    case 2: //2. Drinks를 입력한 경우
-                        System.out.println("\n[ DRINKS MENU ]");
-                        ShowSelectedMenuItem(selectMain);
-                        break;
-
-                    case 3: //3. Deserts 입력한 경우
-                        System.out.println("\n[ DESERTS MENU ]");
-                        ShowSelectedMenuItem(selectMain);
-                        break;
-
-                    case 0: //종료 선택
-                        return;
-                    default:
-                        System.out.println("입력값이 올바르지 않습니다. 메뉴 번호를 입력하세요.");
+                int selectMain = Integer.parseInt(sc.nextLine()); //nextInt로 받으면 개행버퍼제거 줄을 또 만들어야해서 문자열로 받고 int로 변환\
+                //입력한 메뉴에 따른 결과 출력
+                if (selectMain > 0 && selectMain < menus.size()) {
+                    ShowSelectedMenuItem(selectMain); //메뉴아이템 출력과 선택 + 선택한 메뉴아이템 출력
+                }else if(selectMain == 0){
+                    return;
+                }else{
+                    System.out.println("입력값이 올바르지 않습니다. 메뉴를 선택해주세요.");
                 }
             }catch(NullPointerException e){
                 System.out.println("입력되지 않았습니다. 메뉴 번호를 입력하세요."); //입력값이 null일 때

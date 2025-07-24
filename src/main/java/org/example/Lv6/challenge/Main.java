@@ -31,8 +31,14 @@ public class Main {
         menuList.add(new Menu(3,"Deserts",desertList));
         menuList.add(new Menu(0,"종료"));
 
+        // Cart 객체 생성을 통해 cart
+        List<Cart> cart = new ArrayList<>();
+        cart.add(new Cart(4,"Orders       | 장바구니를 확인 후 주문합니다.",menuList));
+        cart.add(new Cart(5,"Cancel       | 진행중인 주문을 취소합니다.",menuList));
+
+
         // Kiosk 객체 생성
-//        Kiosk kiosk = new Kiosk(menuList);
+        Kiosk kiosk = new Kiosk(menuList,cart);
 
         // Kiosk 내 시작하는 함수 호출
 //        kiosk.start();

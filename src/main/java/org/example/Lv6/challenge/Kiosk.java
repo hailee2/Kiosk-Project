@@ -8,11 +8,13 @@ public class Kiosk {
 
     //속성
     private final List<Menu> menus;
+    private final List<Cart> cart;
 
 
     //생성자
-    public Kiosk(List<Menu> menus){
+    public Kiosk(List<Menu> menus, List<Cart> cart){
         this.menus=menus;
+        this.cart=cart;
     }
 
     // 스캐너 선언
@@ -36,11 +38,43 @@ public class Kiosk {
                     System.out.println("입력값이 올바르지 않습니다. 메뉴를 선택해주세요.");
                     return;
                 }
+
+                //선택한 메뉴 가져오기
+//                String menuItem = items.get(selectedMenuItem - 1); // 어떻게 가져오지....
+//
+                //장바구니에 담을지 말지 입력값 받기
+                System.out.println("위 메뉴를 장바구니에 추가하시겠습니까?\n1.확인     2.취소" );
+                int addCart = Integer.parseInt(sc.nextLine());
+                    if(addCart==1){
+                        System.out.println("선택한 메뉴아이템 name 불러오기"+"이 장바구니에 추가되었습니다."); //내가 선택한 메뉴 어케 불러오지..
+                    }else if(addCart==2) {
+                        return;
+                    }
+
+                //실제로 장바구니에 추가 하기
+                //??????!?!??!?!!????
+
+//                //장바구니 옵션 보여주기
+//                if(장바구니리스트.isEmpty()){
+//                    break;
+//                    }else if(!(장바구니리스트.isEmpty())){
+//                    showMenu();
+//                      System.out.println("\n[ ORDER MENU ]");
+//                    for (Cart Carts : cart) {
+//                        System.out.println(cart.getOptionId()+" "+cart.getOptionAndDesc());
+//                    }
             }catch (NumberFormatException e) {
                 System.out.println("입력값이 올바르지 않습니다. 메뉴의 번호를 입력해주세요."); //숫자를 입력하지 않은 경우
             }
+
         }
     }
+
+
+
+
+
+
 
     // List와 Menu 클래스 활용하여 상위 카테고리 메뉴 출력
     private void ShowMenu(){
@@ -59,6 +93,7 @@ public class Kiosk {
         }
         return null;
     }
+
 
 
     private void ShowSelectedMenuItem(int selectMain){ //하위 카테고리 메뉴아이템 출력 / 선택 / 선택한 메뉴 출력
